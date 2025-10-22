@@ -1,6 +1,7 @@
 import { ShoppingCart, Heart, User, Search, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Header = () => {
@@ -23,9 +24,11 @@ const Header = () => {
             >
               <Menu className="h-6 w-6" />
             </Button>
-            <h1 className="text-2xl lg:text-3xl font-black text-primary tracking-tight">
-              SPORTIFY<span className="text-secondary">.</span>
-            </h1>
+            <Link to="/">
+              <h1 className="text-2xl lg:text-3xl font-black text-primary tracking-tight cursor-pointer">
+                SPORTIFY<span className="text-secondary">.</span>
+              </h1>
+            </Link>
           </div>
 
           {/* Search Bar - Desktop */}
@@ -42,35 +45,56 @@ const Header = () => {
 
           {/* Right Icons */}
           <div className="flex items-center gap-2 lg:gap-4">
-            <Button variant="ghost" size="icon" className="relative">
-              <Heart className="h-6 w-6" />
-              <span className="absolute -top-1 -right-1 h-5 w-5 bg-destructive text-destructive-foreground rounded-full text-xs flex items-center justify-center font-bold">
-                3
-              </span>
-            </Button>
-            <Button variant="ghost" size="icon" className="relative">
-              <ShoppingCart className="h-6 w-6" />
-              <span className="absolute -top-1 -right-1 h-5 w-5 bg-secondary text-secondary-foreground rounded-full text-xs flex items-center justify-center font-bold">
-                5
-              </span>
-            </Button>
-            <Button variant="ghost" size="icon">
-              <User className="h-6 w-6" />
-            </Button>
+            <Link to="/profile">
+              <Button variant="ghost" size="icon" className="relative">
+                <Heart className="h-6 w-6" />
+                <span className="absolute -top-1 -right-1 h-5 w-5 bg-destructive text-destructive-foreground rounded-full text-xs flex items-center justify-center font-bold">
+                  3
+                </span>
+              </Button>
+            </Link>
+            <Link to="/cart">
+              <Button variant="ghost" size="icon" className="relative">
+                <ShoppingCart className="h-6 w-6" />
+                <span className="absolute -top-1 -right-1 h-5 w-5 bg-secondary text-secondary-foreground rounded-full text-xs flex items-center justify-center font-bold">
+                  5
+                </span>
+              </Button>
+            </Link>
+            <Link to="/profile">
+              <Button variant="ghost" size="icon">
+                <User className="h-6 w-6" />
+              </Button>
+            </Link>
           </div>
         </div>
 
         {/* Navigation - Desktop */}
         <nav className="hidden lg:flex items-center justify-center gap-8 pb-4">
-          {navItems.map((item) => (
-            <button
-              key={item}
-              className="text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors relative group"
-            >
-              {item}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
-            </button>
-          ))}
+          <Link to="/products" className="text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors relative group">
+            Sports
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
+          </Link>
+          <Link to="/products" className="text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors relative group">
+            Equipment
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
+          </Link>
+          <Link to="/products" className="text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors relative group">
+            Clothing
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
+          </Link>
+          <Link to="/products" className="text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors relative group">
+            Footwear
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
+          </Link>
+          <Link to="/products" className="text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors relative group">
+            Brands
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
+          </Link>
+          <Link to="/offers" className="text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors relative group">
+            Offers
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
+          </Link>
         </nav>
 
         {/* Search Bar - Mobile */}
@@ -88,14 +112,24 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <nav className="lg:hidden flex flex-col gap-4 pb-4 animate-fade-in">
-            {navItems.map((item) => (
-              <button
-                key={item}
-                className="text-left text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors py-2 px-4 hover:bg-muted rounded"
-              >
-                {item}
-              </button>
-            ))}
+            <Link to="/products" className="text-left text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors py-2 px-4 hover:bg-muted rounded">
+              Sports
+            </Link>
+            <Link to="/products" className="text-left text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors py-2 px-4 hover:bg-muted rounded">
+              Equipment
+            </Link>
+            <Link to="/products" className="text-left text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors py-2 px-4 hover:bg-muted rounded">
+              Clothing
+            </Link>
+            <Link to="/products" className="text-left text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors py-2 px-4 hover:bg-muted rounded">
+              Footwear
+            </Link>
+            <Link to="/products" className="text-left text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors py-2 px-4 hover:bg-muted rounded">
+              Brands
+            </Link>
+            <Link to="/offers" className="text-left text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors py-2 px-4 hover:bg-muted rounded">
+              Offers
+            </Link>
           </nav>
         )}
       </div>
