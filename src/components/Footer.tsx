@@ -13,24 +13,36 @@ const Footer = () => {
     <footer className="bg-primary text-primary-foreground pt-16 pb-8">
       <div className="container mx-auto px-4">
         {/* Newsletter Section */}
-        <div className="max-w-2xl mx-auto text-center mb-16">
-          <h3 className="text-2xl lg:text-3xl font-black uppercase mb-4">
-            Join The Team
-          </h3>
-          <p className="text-primary-foreground/80 mb-6">
-            Subscribe to get special offers, free giveaways, and exclusive deals.
-          </p>
-          <div className="flex gap-2 max-w-md mx-auto">
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60 h-12"
-            />
-            <Button
-              className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold uppercase h-12 px-6"
-            >
-              Subscribe
-            </Button>
+        <div className="max-w-2xl mx-auto text-center mb-16 relative">
+          
+          <div className="relative z-10">
+            <h3 className="text-2xl lg:text-3xl font-black uppercase mb-4 animate-fade-in">
+              Join The Team
+            </h3>
+            <p className="text-primary-foreground/80 mb-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              Subscribe to get special offers, free giveaways, and exclusive deals.
+            </p>
+            <div className="flex gap-2 max-w-md mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60 h-12 focus:ring-2 focus:ring-accent transition-all duration-300"
+              />
+              <Button
+                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold uppercase h-12 px-6 relative overflow-hidden group"
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  <Mail className="w-4 h-4 group-hover:animate-bounce" />
+                  Subscribe
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-accent to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </Button>
+            </div>
+            
+            {/* Success Message (Hidden by default) */}
+            <div className="mt-4 text-sm text-accent animate-fade-in hidden" id="newsletter-success">
+              ✓ Thank you for subscribing! Check your email for confirmation.
+            </div>
           </div>
         </div>
 
