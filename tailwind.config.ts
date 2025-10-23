@@ -123,6 +123,23 @@ export default {
         "shimmer": {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" }
+        },
+        "hero-glow": {
+          "0%, 100%": { 
+            boxShadow: "0 0 20px rgba(255, 255, 255, 0.1), 0 0 40px rgba(255, 255, 255, 0.05)" 
+          },
+          "50%": { 
+            boxShadow: "0 0 40px rgba(255, 255, 255, 0.2), 0 0 80px rgba(255, 255, 255, 0.1)" 
+          }
+        },
+        "gradient-shift": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" }
+        },
+        "particle-float": {
+          "0%": { transform: "translateY(0px) rotate(0deg)", opacity: "0.7" },
+          "50%": { transform: "translateY(-20px) rotate(180deg)", opacity: "1" },
+          "100%": { transform: "translateY(0px) rotate(360deg)", opacity: "0.7" }
         }
       },
       animation: {
@@ -138,6 +155,9 @@ export default {
         "bounce-slow": "bounce-slow 2s ease-in-out infinite",
         "wiggle": "wiggle 1s ease-in-out infinite",
         "shimmer": "shimmer 2s linear infinite",
+        "hero-glow": "hero-glow 3s ease-in-out infinite",
+        "gradient-shift": "gradient-shift 8s ease-in-out infinite",
+        "particle-float": "particle-float 4s ease-in-out infinite",
       },
     },
   },

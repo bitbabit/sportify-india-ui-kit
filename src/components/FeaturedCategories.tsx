@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import cricketGear from "@/assets/cricket-gear.jpg";
 import footballGear from "@/assets/football-gear.jpg";
 import runningShoes from "@/assets/running-shoes.jpg";
@@ -9,21 +10,25 @@ const categories = [
     title: "Cricket",
     image: cricketGear,
     color: "from-accent/20 to-accent/5",
+    link: "/products?category=cricket",
   },
   {
     title: "Football",
     image: footballGear,
     color: "from-secondary/20 to-secondary/5",
+    link: "/products?category=football",
   },
   {
     title: "Running",
     image: runningShoes,
     color: "from-ring/20 to-ring/5",
+    link: "/products?category=running",
   },
   {
     title: "Tennis",
     image: tennisGear,
     color: "from-destructive/20 to-destructive/5",
+    link: "/products?category=tennis",
   },
 ];
 
@@ -49,13 +54,14 @@ const FeaturedCategories = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-          {categories.map((category, index) => (
-            <div
-              key={category.title}
-              className="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer athletic-hover animate-zoom-in shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+              {categories.map((category, index) => (
+                <Link
+                  key={category.title}
+                  to={category.link}
+                  className="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer athletic-hover animate-zoom-in shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
               {/* Background Gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${category.color}`} />
 
@@ -86,10 +92,10 @@ const FeaturedCategories = () => {
                 <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-accent/20 to-transparent" />
               </div>
 
-              {/* Border Glow on Hover */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-accent/50 rounded-2xl transition-all duration-300" />
-            </div>
-          ))}
+                  {/* Border Glow on Hover */}
+                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-accent/50 rounded-2xl transition-all duration-300" />
+                </Link>
+              ))}
         </div>
       </div>
     </section>

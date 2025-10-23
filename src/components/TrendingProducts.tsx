@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Heart, ShoppingCart, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 import cricketGear from "@/assets/cricket-gear.jpg";
 import footballGear from "@/assets/football-gear.jpg";
 import runningShoes from "@/assets/running-shoes.jpg";
@@ -159,17 +160,19 @@ const TrendingProducts = () => {
           ))}
         </div>
 
-        {/* View All Products CTA */}
-        <div className="text-center mt-12 animate-fade-in" style={{ animationDelay: '400ms' }}>
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold uppercase tracking-wide h-14 px-10 rounded-full athletic-hover shadow-lg hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 group"
-          >
-            View All Products 
-            <span className="inline-block group-hover:translate-x-2 transition-transform duration-300 ml-2">→</span>
-          </Button>
-        </div>
+            {/* View All Products CTA */}
+            <div className="text-center mt-12 animate-fade-in" style={{ animationDelay: '400ms' }}>
+              <Link to="/products">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold uppercase tracking-wide h-14 px-10 rounded-full athletic-hover shadow-lg hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 group"
+                >
+                  View All Products
+                  <span className="inline-block group-hover:translate-x-2 transition-transform duration-300 ml-2">→</span>
+                </Button>
+              </Link>
+            </div>
       </div>
     </section>
   );
